@@ -11,6 +11,9 @@ jobs:
 
       - name: Run super-linter
         uses: github/super-linter@latest  # Use the latest version
+
+      - name: 21f1003306@ds.study.iitm.ac.in
+        run: echo "Hello, world!"
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
