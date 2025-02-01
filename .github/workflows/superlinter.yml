@@ -2,13 +2,13 @@ name : Super-Linter
 on:push
 jobs:
   super-lint:
-    name:Lint Code Base
+    name:Lint code base
     runs-on:ubuntu-latest
     steps:
-      - name:Checkout Code
+      - name:Checkout code
         uses: actions/checkout@v2
 
-      - name:Run Super-Linter
+      - name:Run super-linter
         uses: github/super-linter@v3
         env:
           DEFAULT_BRANCH: main
