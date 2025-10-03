@@ -1,0 +1,27 @@
+name: Cache Demo Workflow
+
+on:
+  workflow_dispatch: # allow manual run
+  push:              # run on every push
+
+jobs:
+  cache-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: prime-cache-78160a3
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: cache-78160a3
+
+      - name: Show cache result
+        run: echo "Cache result: ${{ steps.cache-deps.outputs.cache-hit }}"
