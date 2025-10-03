@@ -16,8 +16,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      # 👇 this MUST be the exact step name
       - name: prime-cache-78160a3
-        id: cache-deps
+        id: cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
@@ -25,4 +26,4 @@ jobs:
 
       - name: Show cache result
         run: |
-          echo "Cache result: ${{ steps.cache-deps.outputs.cache-hit }}"
+          echo "Cache result: ${{ steps.cache.outputs.cache-hit }}"
